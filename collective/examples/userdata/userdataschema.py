@@ -50,13 +50,12 @@ class IEnhancedUserDataSchema(model.Schema):
         required=False,
         )
     form.widget(gender='z3c.form.browser.radio.RadioFieldWidget')
-#TODO: getContent breaks this :(
-#    birthdate = schema.Date(
-#        title=_(u'label_birthdate', default=u'birthdate'),
-#        description=_(u'help_birthdate', 
-#            default=u'Your date of birth, in the format dd-mm-yyyy'),
-#        required=False,
-#        )
+    birthdate = schema.Date(
+        title=_(u'label_birthdate', default=u'birthdate'),
+        description=_(u'help_birthdate',
+                      default=u'Your date of birth, in the format dd-mm-yyyy'),
+        required=False,
+        )
     birthyear = schema.TextLine(
         title=_(u'label_birthyear', default=u'Year of birth'),
         description=_(u'help_birthyear',
