@@ -1,6 +1,5 @@
 from zope.interface import Interface
 from zope.component import adapts
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope import schema
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
@@ -14,6 +13,7 @@ from plone.app.users.browser.z3cregister import BaseRegistrationForm
 from plone.z3cform.fieldsets import extensible
 
 from collective.examples.userdata import _
+from collective.examples.userdata.interfaces import IUserDataExamplesLayer
 
 
 gender_options = SimpleVocabulary([
@@ -98,7 +98,7 @@ class IEnhancedUserDataSchema(model.Schema):
 
 
 class UserDataPanelExtender(extensible.FormExtender):
-    adapts(Interface, IDefaultBrowserLayer, UserDataPanel)
+    adapts(Interface, IUserDataExamplesLayer, UserDataPanel)
 
     def update(self):
         fields = field.Fields(IEnhancedUserDataSchema)
@@ -107,7 +107,7 @@ class UserDataPanelExtender(extensible.FormExtender):
         self.add(fields, prefix="IEnhancedUserDataSchema")
 
 class RegistrationPanelExtender(extensible.FormExtender):
-    adapts(Interface, IDefaultBrowserLayer, BaseRegistrationForm)
+    adapts(Interface, IUserDataExamplesLayer, BaseRegistrationForm)
 
     def update(self):
         fields = field.Fields(IEnhancedUserDataSchema)
