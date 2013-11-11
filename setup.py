@@ -1,7 +1,11 @@
 from setuptools import setup, find_packages
 import os
 
+<<<<<<< HEAD
 version = '0.5.dev0'
+=======
+version = '2.0.dev0'
+>>>>>>> Add CHANGES note, bump version, require p.a.u 2.0
 
 setup(name='collective.examples.userdata',
       version=version,
