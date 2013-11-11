@@ -21,9 +21,10 @@ gender_options = SimpleVocabulary([
     ])
 
 def validateAccept(value):
-    if not value == True:
+    if value is not True:
         return False
     return True
+
 
 class IEnhancedUserDataSchema(model.Schema):
     """ Use all the fields from the default user data schema, and add various
@@ -82,7 +83,7 @@ class IEnhancedUserDataSchema(model.Schema):
         title=_(u'label_newsletter', default=u'Subscribe to newsletter'),
         description=_(u'help_newsletter',
                       default=u"If you tick this box, we'll subscribe you to "
-                        "our newsletter."),
+                      "our newsletter."),
         required=False,
         )
     accept = schema.Bool(
@@ -100,9 +101,10 @@ class UserDataPanelExtender(extensible.FormExtender):
 
     def update(self):
         fields = field.Fields(IEnhancedUserDataSchema)
-        fields = fields.omit('accept') # Users have already accepted.
+        fields = fields.omit('accept')  # Users have already accepted.
         fields['gender'].widgetFactory = RadioFieldWidget
         self.add(fields, prefix="IEnhancedUserDataSchema")
+
 
 class RegistrationPanelExtender(extensible.FormExtender):
     adapts(Interface, IUserDataExamplesLayer, RegistrationForm)
@@ -112,11 +114,13 @@ class RegistrationPanelExtender(extensible.FormExtender):
         fields['gender'].widgetFactory = RadioFieldWidget
         self.add(fields, prefix="IEnhancedUserDataSchema")
 
+
 class AddUserFormExtender(extensible.FormExtender):
     adapts(Interface, IUserDataExamplesLayer, AddUserForm)
 
     def update(self):
         fields = field.Fields(IEnhancedUserDataSchema)
         fields['gender'].widgetFactory = RadioFieldWidget
-        fields = fields.omit('accept') # management form doesn't need this field
+        # management form doesn't need this field
+        fields = fields.omit('accept')
         self.add(fields, prefix="IEnhancedUserDataSchema")
