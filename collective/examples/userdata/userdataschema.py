@@ -7,6 +7,7 @@ from z3c.form import field
 from z3c.form.browser.radio import RadioFieldWidget
 
 from plone.supermodel import model
+from plone.formwidget.datetime.z3cform.widget import DateFieldWidget
 from plone.app.users.browser.account import AccountPanelSchemaAdapter
 from plone.app.users.browser.userdatapanel import UserDataPanel
 from plone.app.users.browser.register import RegistrationForm, AddUserForm
@@ -117,6 +118,7 @@ class UserDataPanelExtender(extensible.FormExtender):
         fields = field.Fields(IEnhancedUserDataSchema)
         fields = fields.omit('accept')  # Users have already accepted.
         fields['gender'].widgetFactory = RadioFieldWidget
+        fields['birthdate'].widgetFactory = DateFieldWidget
         self.add(fields, prefix="IEnhancedUserDataSchema")
 
 
@@ -126,6 +128,7 @@ class RegistrationPanelExtender(extensible.FormExtender):
     def update(self):
         fields = field.Fields(IEnhancedUserDataSchema)
         fields['gender'].widgetFactory = RadioFieldWidget
+        fields['birthdate'].widgetFactory = DateFieldWidget
         self.add(fields, prefix="IEnhancedUserDataSchema")
 
 
@@ -135,6 +138,7 @@ class AddUserFormExtender(extensible.FormExtender):
     def update(self):
         fields = field.Fields(IEnhancedUserDataSchema)
         fields['gender'].widgetFactory = RadioFieldWidget
+        fields['birthdate'].widgetFactory = DateFieldWidget
         # management form doesn't need this field
         fields = fields.omit('accept')
         self.add(fields, prefix="IEnhancedUserDataSchema")
