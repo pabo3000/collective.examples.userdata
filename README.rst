@@ -40,7 +40,7 @@ To add this schema to the form, we need to define a form extender for
         def update(self):
             fields = field.Fields(IEnhancedUserDataSchema)
             fields = fields.omit('accept') # Users have already accepted.
-            self.add(fields, prefix="IEnhancedUserDataSchema")
+            self.add(fields)
 
 And register this in configure.zcml::
 
@@ -102,7 +102,7 @@ as before::
         def update(self):
             fields = field.Fields(IEnhancedUserDataSchema)
             #NB: Not omitting the accept field this time, we want people to check it
-            self.add(fields, prefix="IEnhancedUserDataSchema")
+            self.add(fields)
 
 And register this in configure.zcml::
 
