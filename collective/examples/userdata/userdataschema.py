@@ -22,6 +22,7 @@ gender_options = SimpleVocabulary([
     SimpleTerm(value='Female', title=_(u'Female')),
     ])
 
+
 def validateAccept(value):
     if value is not True:
         return False
@@ -48,7 +49,7 @@ class IEnhancedUserDataSchema(model.Schema):
         title=_(u'label_gender', default=u'Gender'),
         description=_(u'help_gender',
                       default=u"Are you a girl or a boy?"),
-        vocabulary = gender_options,
+        vocabulary=gender_options,
         required=False,
         )
     birthdate = schema.Date(
