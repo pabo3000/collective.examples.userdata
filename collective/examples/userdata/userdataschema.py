@@ -104,7 +104,7 @@ class UserDataPanelExtender(extensible.FormExtender):
         fields = fields.omit('accept')  # Users have already accepted.
         fields['gender'].widgetFactory = RadioFieldWidget
         fields['birthdate'].widgetFactory = DateFieldWidget
-        self.add(fields, prefix="IEnhancedUserDataSchema")
+        self.add(fields)
 
 
 class RegistrationPanelExtender(extensible.FormExtender):
@@ -114,7 +114,7 @@ class RegistrationPanelExtender(extensible.FormExtender):
         fields = field.Fields(IEnhancedUserDataSchema)
         fields['gender'].widgetFactory = RadioFieldWidget
         fields['birthdate'].widgetFactory = DateFieldWidget
-        self.add(fields, prefix="IEnhancedUserDataSchema")
+        self.add(fields)
 
 
 class AddUserFormExtender(extensible.FormExtender):
@@ -126,4 +126,4 @@ class AddUserFormExtender(extensible.FormExtender):
         fields['birthdate'].widgetFactory = DateFieldWidget
         # management form doesn't need this field
         fields = fields.omit('accept')
-        self.add(fields, prefix="IEnhancedUserDataSchema")
+        self.add(fields)
