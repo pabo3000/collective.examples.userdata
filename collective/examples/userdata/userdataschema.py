@@ -1,3 +1,6 @@
+import datetime
+
+from DateTime.DateTime import DateTime
 from zope.interface import Interface
 from zope.component import adapts
 from zope import schema
@@ -104,10 +107,12 @@ class EnhancedUserDataSchemaAdapter(AccountPanelSchemaAdapter):
 
     def get_birthdate(self):
         bd = self._getProperty('birthdate')
-        return None if bd == '' else bd.asdatetime()
+        return None if bd == '' else bd.asdatetime().date()
 
     def set_birthdate(self, value):
-        return self._setProperty('birthdate', value)
+        return self._setProperty('birthdate',
+            DateTime(datetime.datetime(value.year, value.month, value.day,
+                                       0, 0)))
 
     birthdate = property(get_birthdate, set_birthdate)
 
