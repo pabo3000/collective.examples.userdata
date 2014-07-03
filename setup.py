@@ -14,7 +14,7 @@ long_description = \
 setup(
     name='collective.examples.userdata',
     version=version,
-    description="Showcase for the new (Plone 4) plone.app.users "
+    description="Showcase for the new (Plone 5) plone.app.users "
                 "IUserDataSchema. Shows how to extend the user data fields "
                 "that can be selected for the registration form.",
     long_description=long_description,
