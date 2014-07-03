@@ -10,6 +10,16 @@ provided by plone.app.users_, and add new fields to the registration form.
 If you are using a Plone version previous to Plone 5, then you need to look at the older version of
 `collective.examples.userdata here <https://pypi.python.org/pypi/collective.examples.userdata/0.4>`__.
 
+Note for upgraders
+------------------
+
+Previously, your ``IEnhancedUserDataSchema`` was registered via. a
+``IUserDataSchemaProvider`` utility you registered in
+``componentregistry.xml``. If this is something you did, then be sure to remove
+this utility, ideally before upgrading. 
+`wildcard.fixpersistentutilities <https://pypi.python.org/pypi/wildcard.fixpersistentutilities/>`__
+could help here.
+
 Adding custom userdata fields
 -----------------------------
 
