@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1 (unreleased)
+2.1 (2014-07-03)
 ----------------
 
 - Fix broken setup.py so we generate documentation & install properly again.
