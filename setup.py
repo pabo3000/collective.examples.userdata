@@ -2,9 +2,14 @@ from setuptools import setup, find_packages
 import os
 
 version = '2.1.dev0'
-long_description = open("README.rst").read() + "\n"\
-    + open(os.path.join("docs", "HISTORY.txt")).read() + "\n"\
-    + open(os.path.join("docs", "TODO.txt")).read(),
+
+def read(*rnames):
+    return open(os.path.join(os.path.dirname(__file__), *rnames)).read() + "\n"
+
+long_description = \
+    read('README.rst') + \
+    read('docs', 'HISTORY.txt') + \
+    read('docs', 'TODO.txt')
 
 setup(
     name='collective.examples.userdata',
@@ -19,7 +24,7 @@ setup(
     ],
     keywords='',
     author='Kees Hink',
-    author_email='',
+    author_email='plone-developers@lists.sourceforge.net',
     url='https://github.com/collective/collective.examples.userdata',
     license='GPL',
     packages=find_packages(exclude=['ez_setup']),

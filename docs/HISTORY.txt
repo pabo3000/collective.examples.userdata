@@ -4,7 +4,8 @@ Changelog
 2.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix broken setup.py so we generate documentation & install properly again.
+  [lentinj]
 
 
 2.0 (2014-07-03)
