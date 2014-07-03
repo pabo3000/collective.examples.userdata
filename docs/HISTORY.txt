@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0 (unreleased)
+2.0 (2014-07-03)
 ----------------
 
 - Convert to show customisation of z3c.form-based plone.app.users.
