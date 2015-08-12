@@ -3,6 +3,7 @@ import os
 
 version = '2.2.dev0'
 
+
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read() + "\n"
 
