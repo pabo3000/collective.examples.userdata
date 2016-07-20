@@ -4,8 +4,7 @@
   <!-- Fields that will be added to the form after installation of the product
   -->
   <property name="user_registration_fields" type="lines" purge="False">
-   <element value="country" />
-   <element value="accept" />
+   <element value="company" />
   </property>
  </object>
 </object>
