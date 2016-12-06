@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="tda.besprechungsprotokoll">
+
+  <browser:page
+      for="*"
+      name="sharing"
+      class=".sharing.OverrideSharingView"
+      template="sharing.pt"
+      permission="plone.DelegateRoles"
+      layer="tda.besprechungsprotokoll.interfaces.ITdaBesprechungsprotokollLayer"
+      />
+
+</configure>
